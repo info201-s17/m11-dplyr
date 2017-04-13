@@ -32,5 +32,5 @@ efficient <- function(make, year) {
 }
 
 # What was the most efficient honda model of 1995?
-efficient('', 1995)
+efficient('Honda', 1995)
 
