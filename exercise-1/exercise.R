@@ -26,7 +26,7 @@ worst.hwy.mpg <-two.wheel.vehicles$id[two.wheel.vehicles$hwy == min(two.wheel.ve
 
 # Write a function that takes a `year` and a `make` as parameters, and returns 
 # The vehicle that gets the most hwy miles/gallon of vehicles of that make in that year
-efficient <- function(make, year) {
+Efficient <- function(make, year) {
   sort <- vehicles[vehicles$make == make & vehicles$year == year,]
   return(sort[sort$hwy == max(sort$hwy),])
 }
