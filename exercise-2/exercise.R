@@ -32,7 +32,11 @@ worst.hwy.mpg <- select(sort, id)
 
 # Write a function that takes a `year` and a `make` as parameters, and returns 
 # The vehicle that gets the most hwy miles/gallon of vehicles of that make in that year
+Efficient <- function(make, year) {
+  sort <- filter(vehicles, make == make & year == year) %>% filter(hwy == max(hwy))
+  return(sort)
+}
 
 # What was the most efficient honda model of 1995?
-
+Efficient('Honda', 1995)
 
