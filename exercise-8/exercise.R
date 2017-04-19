@@ -1,4 +1,5 @@
 # Exercise 8: Pulitzer Prizes
+setwd("~/Work/School/INFO201/m11-dplyr/exercise-8/")
 
 # Read in the data
 pulitzer <- read.csv("data/pulitzer-circulation-data.csv", stringsAsFactors = FALSE)
@@ -9,22 +10,27 @@ pulitzer <- read.csv("data/pulitzer-circulation-data.csv", stringsAsFactors = FA
 #install.packages(dplyr)
 library(dplyr)
 
-# View in the data set. Start to understand what the data columns contains
+# View in the data set. Start to understa'nd what the data columns contains
 # Be sure to comment out the function so it won't view everytime you run the code.
-
+View(pulitzer)
 
 # Use 'colnames' to print out the names of the columns
-
+print(colnames(pulitzer))
 
 # Use 'str' to print what types of values are contained in each column
 # Did any value type surprise you? Why do you think they are that type?
-
+print(str(pulitzer))
 
 # Add a column that contains the diffrence in changes in Daily Circulation from 2004 to 2013
+pulitzer.diff <- mutate(pulitzer, Change.2004.to.2013 = 
+                               Pulitzer.Prize.Winners.and.Finalists..2004.2014 - 
+                               Pulitzer.Prize.Winners.and.Finalists..1990.2003)
 
 
 # What publication gained the most pulitzer prizes from 2004-2014?
 # Be sure to use the pipe operator! 
+most.pulitzer <- filter(pulitzer.diff, max(Pulitzer.Prize.Winners.and.Finalists..2004.2014) == 
+                          Pulitzer.Prize.Winners.and.Finalists..2004.2014) %>% select(Newspaper)
 
 
 # Which publication with at least 5 Pulitzers won from 2004-2014 had the biggest decrease(negative) in Daily circulation numbers? 
@@ -33,3 +39,7 @@ library(dplyr)
 
 # Your turn! An important part about being a data scientist is asking questions. 
 # Create a question and use dplyr to figure out the answer.  
+
+
+
+
